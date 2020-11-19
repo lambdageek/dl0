@@ -4,7 +4,7 @@ config = {
   "assets": [
     {
       "behavior": "assembly",
-      "name": "EncHelper.dll"
+      "name": "DeltaHelper.dll"
     },
     {
       "behavior": "assembly",
@@ -60,22 +60,37 @@ config = {
     },
     {
       "behavior": "assembly",
-      "name": "WasmSample.dll"
+      "name": "WasmDelta.dll"
     },
     {
-      "virtual_path": "/WasmSample.dll.1.dmeta",
+      "virtual_path": "/WasmDelta.dll.1.dmeta",
       "behavior": "vfs",
-      "name": "supportFiles/0_WasmSample.dll.1.dmeta"
+      "name": "supportFiles/0_WasmDelta.dll.1.dmeta"
     },
     {
-      "virtual_path": "/WasmSample.dll.1.dil",
+      "virtual_path": "/WasmDelta.dll.1.dil",
       "behavior": "vfs",
-      "name": "supportFiles/1_WasmSample.dll.1.dil"
+      "name": "supportFiles/1_WasmDelta.dll.1.dil"
     },
     {
-      "virtual_path": "/WasmSample.dll.1.dpdb",
+      "virtual_path": "/WasmDelta.dll.1.dpdb",
       "behavior": "vfs",
-      "name": "supportFiles/2_WasmSample.dll.1.dpdb"
+      "name": "supportFiles/2_WasmDelta.dll.1.dpdb"
+    },
+    {
+      "virtual_path": "/WasmDelta.dll.2.dmeta",
+      "behavior": "vfs",
+      "name": "supportFiles/3_WasmDelta.dll.2.dmeta"
+    },
+    {
+      "virtual_path": "/WasmDelta.dll.2.dil",
+      "behavior": "vfs",
+      "name": "supportFiles/4_WasmDelta.dll.2.dil"
+    },
+    {
+      "virtual_path": "/WasmDelta.dll.2.dpdb",
+      "behavior": "vfs",
+      "name": "supportFiles/5_WasmDelta.dll.2.dpdb"
     },
     {
       "load_remote": false,

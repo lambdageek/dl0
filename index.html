@@ -11,19 +11,19 @@
     <h3 id="header">Wasm Browser Sample</h3>
     Result from Sample.Test.TestMeaning: <span id="out"></span>
     <div>
-      <button id="update">Update</button>
+      Click here (upto 2 times): <button id="update">Update</button>
     </div>
     <script type='text/javascript'>
       var App = {
         init: function () {
 	  var outElement = document.getElementById("out");
           document.getElementById("update").addEventListener("click", function () {
-	    BINDING.call_static_method("[WasmSample] Sample.Test:Update", []);
+	    BINDING.call_static_method("[WasmDelta] Sample.Test:Update", []);
 	    console.log ("applied update");
-	    var ret = BINDING.call_static_method("[WasmSample] Sample.Test:TestMeaning", []);
+	    var ret = BINDING.call_static_method("[WasmDelta] Sample.Test:TestMeaning", []);
 	    outElement.innerHTML = ret;
 	  })
-          var ret = BINDING.call_static_method("[WasmSample] Sample.Test:TestMeaning", []);
+          var ret = BINDING.call_static_method("[WasmDelta] Sample.Test:TestMeaning", []);
 	  outElement.innerHTML = ret;
           console.log ("ready");
         },

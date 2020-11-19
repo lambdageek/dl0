@@ -7,9 +7,8 @@ var Module = {
             App.init ();
         };
         config.fetch_file_cb = function (asset) {
-	    console.log (`fetching ${asset}`);
             return fetch (asset, { credentials: 'same-origin' });
-        };
+        }
 
         MONO.mono_load_runtime_and_bcl_args (config);
     },
