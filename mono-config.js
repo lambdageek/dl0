@@ -52,6 +52,10 @@ config = {
     },
     {
       "behavior": "assembly",
+      "name": "System.Runtime.Loader.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Text.Encoding.Extensions.dll"
     },
     {
