@@ -1152,9 +1152,9 @@ function updateGlobalBufferAndViews(buf) {
   Module['HEAPF64'] = HEAPF64 = new Float64Array(buf);
 }
 
-var STACK_BASE = 5959168,
+var STACK_BASE = 5957728,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 716288;
+    STACK_MAX = 714848;
 
 assert(STACK_BASE % 16 === 0, 'stack must start aligned');
 
@@ -1653,15 +1653,15 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  219383: function($0, $1) {var level = $0; var message = Module.UTF8ToString ($1); var namespace = "Debugger.Debug"; if (MONO["logging"] && MONO.logging["debugger"]) { MONO.logging.debugger (level, message); return; } console.debug("%s: %s", namespace, message);},  
- 221584: function($0, $1, $2) {MONO.mono_wasm_add_typed_value ('pointer', $0, { ptr_addr: $1, klass_addr: $2 });},  
- 221699: function($0, $1, $2) {MONO.mono_wasm_add_typed_value ('array', $0, { objectId: $1, length: $2 });},  
- 221811: function($0, $1, $2, $3, $4, $5) {MONO.mono_wasm_add_typed_value ($0, $1, { toString: $2, value_addr: $3, value_size: $4, klass: $5 });},  
- 221933: function($0, $1, $2) {MONO.mono_wasm_add_typed_value ($0, $1, { toString: $2 });},  
- 222406: function($0, $1, $2, $3, $4) {MONO.mono_wasm_add_properties_var ($0, { field_offset: $1, is_own: $2, attr: $3, owner_class: $4 });},  
- 648586: function($0, $1) {MONO.string_decoder.decode($0, $0 + $1, true);},  
- 649046: function($0, $1, $2, $3) {var str = MONO.string_decoder.decode ($0, $0 + $1); try { var res = eval (str); if (res === null || res == undefined) return 0; res = res.toString (); setValue ($2, 0, "i32"); } catch (e) { res = e.toString(); setValue ($2, 1, "i32"); if (res === null || res === undefined) res = "unknown exception"; var stack = e.stack; if (stack) { if (stack.startsWith(res)) res = stack; else res += "\n" + stack; } } var buff = Module._malloc((res.length + 1) * 2); stringToUTF16 (res, buff, (res.length + 1) * 2); setValue ($3, res.length, "i32"); return buff;},  
- 649600: function($0, $1, $2, $3, $4) {var log_level = $0; var message = Module.UTF8ToString ($1); var isFatal = $2; var domain = Module.UTF8ToString ($3); var dataPtr = $4; if (MONO["logging"] && MONO.logging["trace"]) { MONO.logging.trace(domain, log_level, message, isFatal, dataPtr); return; } if (isFatal) console.trace (message); switch (Module.UTF8ToString ($0)) { case "critical": case "error": console.error (message); break; case "warning": console.warn (message); break; case "message": console.log (message); break; case "info": console.info (message); break; case "debug": console.debug (message); break; default: console.log (message); break; }}
+  218075: function($0, $1) {var level = $0; var message = Module.UTF8ToString ($1); var namespace = "Debugger.Debug"; if (MONO["logging"] && MONO.logging["debugger"]) { MONO.logging.debugger (level, message); return; } console.debug("%s: %s", namespace, message);},  
+ 220269: function($0, $1, $2) {MONO.mono_wasm_add_typed_value ('pointer', $0, { ptr_addr: $1, klass_addr: $2 });},  
+ 220384: function($0, $1, $2) {MONO.mono_wasm_add_typed_value ('array', $0, { objectId: $1, length: $2 });},  
+ 220496: function($0, $1, $2, $3, $4, $5) {MONO.mono_wasm_add_typed_value ($0, $1, { toString: $2, value_addr: $3, value_size: $4, klass: $5 });},  
+ 220618: function($0, $1, $2) {MONO.mono_wasm_add_typed_value ($0, $1, { toString: $2 });},  
+ 221084: function($0, $1, $2, $3, $4) {MONO.mono_wasm_add_properties_var ($0, { field_offset: $1, is_own: $2, attr: $3, owner_class: $4 });},  
+ 647138: function($0, $1) {MONO.string_decoder.decode($0, $0 + $1, true);},  
+ 647598: function($0, $1, $2, $3) {var str = MONO.string_decoder.decode ($0, $0 + $1); try { var res = eval (str); if (res === null || res == undefined) return 0; res = res.toString (); setValue ($2, 0, "i32"); } catch (e) { res = e.toString(); setValue ($2, 1, "i32"); if (res === null || res === undefined) res = "unknown exception"; var stack = e.stack; if (stack) { if (stack.startsWith(res)) res = stack; else res += "\n" + stack; } } var buff = Module._malloc((res.length + 1) * 2); stringToUTF16 (res, buff, (res.length + 1) * 2); setValue ($3, res.length, "i32"); return buff;},  
+ 648152: function($0, $1, $2, $3, $4) {var log_level = $0; var message = Module.UTF8ToString ($1); var isFatal = $2; var domain = Module.UTF8ToString ($3); var dataPtr = $4; if (MONO["logging"] && MONO.logging["trace"]) { MONO.logging.trace(domain, log_level, message, isFatal, dataPtr); return; } if (isFatal) console.trace (message); switch (Module.UTF8ToString ($0)) { case "critical": case "error": console.error (message); break; case "warning": console.warn (message); break; case "message": console.log (message); break; case "info": console.info (message); break; case "debug": console.debug (message); break; default: console.log (message); break; }}
 };
 function compile_function(snippet_ptr,len,is_exception){ try { var data = MONO.string_decoder.decode (snippet_ptr, snippet_ptr + len); var wrapper = '(function () { ' + data + ' })'; var funcFactory = eval(wrapper); var func = funcFactory(); if (typeof func !== 'function') { throw new Error('Code must return an instance of a JavaScript function. ' + 'Please use `return` statement to return a function.'); } setValue (is_exception, 0, "i32"); return BINDING.js_to_mono_obj (func); } catch (e) { res = e.toString (); setValue (is_exception, 1, "i32"); if (res === null || res === undefined) res = "unknown exception"; return BINDING.js_to_mono_obj (res); } }
 
